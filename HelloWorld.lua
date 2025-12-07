@@ -65,7 +65,7 @@ Scripts.SG = function()
 	)
 end
 
-Scripts.GetPcall = function()
+Scripts.GetPcall = function(err)
     local trace = debug.traceback("", 2)
     local line  = err:match(":(%d+):") or trace:match(":(%d+):") or "?"
     local time  = os.date("%H:%M:%S")
