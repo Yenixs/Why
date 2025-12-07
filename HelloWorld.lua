@@ -65,4 +65,20 @@ Scripts.SG = function()
 	)
 end
 
+Scripts.GetPcall = function()
+    local trace = debug.traceback("", 2)
+    local line  = err:match(":(%d+):") or trace:match(":(%d+):") or "?"
+    local time  = os.date("%H:%M:%S")
+    warn(string.format([[ 
+	realvisper say!
+	----------------------------------------
+	Time   : %s
+	Line   : %s
+	Error  : %s
+	Trace  :
+	%s
+	----------------------------------------
+	]], time, line, tostring(err), trace:gsub("\n", "\n  | ")))
+end
+
 return Scripts
